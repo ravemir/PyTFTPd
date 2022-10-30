@@ -190,7 +190,7 @@ class RQPacket(TFTPPacket):
     @staticmethod
     def parse_rq(packet: bytes, constructor):
         block_size = 512
-        window_size = 1
+        window_size = 2
         bad_opts = False
         packet = packet[2:].split(b'\0')
         for i in range(2, len(packet), 2):
