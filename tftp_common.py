@@ -198,6 +198,8 @@ class RQPacket(TFTPPacket):
                 block_size = int(packet[i + 1])
             elif packet[i].lower() == b'windowsize':
                 window_size = int(packet[i + 1])
+            elif packet[i].lower() == b'timeout':
+                pass    # unimplemented for this tweak, but requested by the  OpenWrt router
             elif packet[i] != b'':
                 bad_opts = True
         return constructor(packet[0], TransferModes.get_mode(packet[1]), block_size, window_size, bad_opts)
